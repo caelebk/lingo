@@ -1,8 +1,18 @@
 import { prisma } from "@/src/db"
-import CardListEditor from "../components/cardListEditor"
+import Deck from "../components/deck"
+import Link from "next/link"
+import Image from "next/image"
 
-function getCards() {
-  return prisma.card.findMany()
+function getCards(deckId: string) {
+  return prisma.card.findMany({
+    where: {
+      deckId: deckId
+    }
+  })
+}
+
+function getDecks() {
+  return prisma.deck.findMany()
 }
 
 async function deleteCard(id: string) {
@@ -14,15 +24,39 @@ async function deleteCard(id: string) {
   })
 }
 
+async function deleteDeck(id: string) {
+  "use server"
+  await prisma.card.deleteMany({
+    where: {
+      deckId: id
+    }
+  })
+  await prisma.deck.delete({
+    where: {
+      id: id
+    }
+  })
+}
+
 export default async function Home() {
-  const cards = await getCards()
+  const decks = await getDecks()
   return (
     <div>
       <header className="flex justify-between items-center mb-10">
-        <h1 className='text-5xl'>Lingo</h1>
-        <button className="border border-slate-300 rounded px-2 py-1 hover:bg-slate-700"> Log In </button>
+        <h1 className='flex justify-center items-center gap-3 text-5xl'>
+          <Image src="/favicon.ico" width={48} height={48} alt="Logo" />
+          Lingo
+        </h1>
+        <Link href="/createDeck" className="border border-slate-300 rounded px-2 py-1 hover:bg-slate-700"> Create Deck </Link>
       </header>
-      <CardListEditor cards={cards} deleteCard={deleteCard} />
+      {
+        decks.map(async (deck) => {
+          const cards = await getCards(deck.id)
+          return (
+            <Deck key={deck.id} cards={cards} deleteCard={deleteCard} {...deck} />
+          )
+        })
+      }
     </div>
   )
 }
