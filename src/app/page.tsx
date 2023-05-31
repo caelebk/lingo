@@ -24,20 +24,6 @@ async function deleteCard(id: string) {
   })
 }
 
-async function deleteDeck(id: string) {
-  "use server"
-  await prisma.card.deleteMany({
-    where: {
-      deckId: id
-    }
-  })
-  await prisma.deck.delete({
-    where: {
-      id: id
-    }
-  })
-}
-
 export default async function Home() {
   const decks = await getDecks()
   return (
