@@ -23,7 +23,7 @@ export default function CreateDeck() {
             <header className="flex justify-between items-center mb-10">
                 <h1 className='text-5xl'>Create a Deck</h1>
             </header>
-            <form action={createDeck} className="flex gap-2 flex-col border border-slate-300 rounded px-3 py-5">
+            <form action={createDeck} className="flex gap-2 flex-col border-slate-800 shadow-lg bg-slate-800 rounded-lg px-3 py-5">
                 <label>Deck Name: </label>
                 <input type="text" name="title" className="
                 border border-slate-300 rounded px-2 py-1 mb-8 outline-none bg-transparent focus-within:border-slate-100 focus-within:bg-slate-700"
