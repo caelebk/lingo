@@ -33,7 +33,7 @@ export default async function Home() {
           <Image src="/favicon.ico" width={48} height={48} alt="Logo" />
           Lingo
         </h1>
-        <Link href="/createDeck" className="border border-slate-300 rounded px-2 py-1 hover:bg-slate-700"> Create Deck </Link>
+        <Link href="/createDeck" className=" border-slate-400 bg-slate-800 shadow rounded-lg px-3 py-2 hover:bg-slate-700"> Create Deck </Link>
       </header>
       {
         decks.map(async (deck) => {
