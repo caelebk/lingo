@@ -41,7 +41,7 @@ export default function CreateCard(props: paramsProps) {
             <header className="flex justify-between items-center mb-10">
                 <h1 className='text-5xl'>Create a Card</h1>
             </header>
-            <form action={createCardWithID} className="flex gap-2 flex-col border border-slate-300 rounded px-3 py-5">
+            <form action={createCardWithID} className="flex gap-2 flex-col border-slate-800 shadow-lg rounded-lg bg-slate-800 px-3 py-5">
                 <label>Term: </label>
                 <input type="text" name="term" className="
                 border border-slate-300 rounded px-2 py-1 mb-4 outline-none bg-transparent focus-within:border-slate-100 focus-within:bg-slate-700"
