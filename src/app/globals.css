@@ -8,10 +8,10 @@
 
 ::-webkit-scrollbar-track {
     background-color: transparent;
+}
 
-    &:hover {
-        background-color: #d3d3eb2d;
-    }
+::-webkit-scrollbar-track&:hover {
+    background-color: #d3d3eb2d;
 }
 
 ::-webkit-scrollbar-thumb {

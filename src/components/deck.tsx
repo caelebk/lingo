@@ -68,7 +68,7 @@ export default function Deck(props: DeckProps) {
                     <div className="flex items-center justify-end mb-5">
                         <DeckActions editMode={editMode} title={title} setEditMode={(value: boolean) => setEditMode(value)} id={id} />
                     </div>
-                    <CardList cards={cards} editMode={editMode} deleteCard={deleteCard} />
+                    <CardList id={id} cards={cards} editMode={editMode} deleteCard={deleteCard} />
                 </div>
             </animated.div>
         </div >
