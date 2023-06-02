@@ -13,7 +13,7 @@ export default function DeckActions(props: DeckActionsProps) {
         <div className="flex gap-2">
             {!editMode ?
                 (<button onClick={() => setEditMode(!editMode)}
-                    className="border border-slate-300 px-2 py-1 rounded
+                    className="border border-slate-600 px-2 py-1 rounded
         hover:bg-slate-700">
                     Edit
                 </button>)

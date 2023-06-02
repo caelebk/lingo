@@ -24,6 +24,10 @@ async function deleteCard(id: string) {
   })
 }
 
+async function updateDeck(id: string) {
+
+}
+
 export default async function Home() {
   const decks = await getDecks()
   return (

@@ -48,7 +48,7 @@ export default function Deck(props: DeckProps) {
     })
 
     return (
-        <div className="flex flex-col border-slate-800 shadow-lg bg-slate-800 rounded-lg border mb-5">
+        <div className="flex flex-col border-slate-800 shadow-2xl bg-slate-800 rounded-lg border mb-5">
             <button onClick={toggleVisible}>
                 <header className="flex items-center justify-between p-3">
                     <h3 className="text-3xl">{title}</h3>

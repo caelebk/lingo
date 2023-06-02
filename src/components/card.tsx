@@ -38,7 +38,7 @@ export default function Card(props: CardProps) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </animated.button>
-            <div className="flex grow justify-between items-center border border-slate-300 text-slate-300 rounded px-2 py-1">
+            <div className="flex grow justify-between items-center border border-slate-600 shadow-2xl rounded px-2 py-1">
                 <span>{term}</span>
                 <span>{definition}</span>
             </div>
