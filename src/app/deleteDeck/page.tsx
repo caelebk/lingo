@@ -1,5 +1,4 @@
 import { prisma } from "@/src/db";
-import { redirect } from "next/navigation";
 import Link from "next/link";
 import DeleteButton from "@/src/components/deleteButton";
 
