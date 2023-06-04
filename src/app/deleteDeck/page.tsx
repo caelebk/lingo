@@ -37,12 +37,12 @@ export default function DeleteDeck(props: paramsProps) {
             <div className="flex flex-col items-center justify-between gap-10">
                 <h1 className="text-4xl">Are you sure you want to delete {title}?</h1>
                 <div className="flex justify-center items-center gap-5">
+                    <DeleteButton deleteDeck={deleteDeck} deckId={deckId} />
                     <Link className="self-end border border-slate-300 px-10 py-2 rounded text-slate-300
         hover:bg-slate-700 hover:text-red-400 hover:cursor-pointer"
-                        href="">
+                        href="..">
                         No
                     </Link>
-                    <DeleteButton deleteDeck={deleteDeck} deckId={deckId} />
                 </div>
             </div>
         </>

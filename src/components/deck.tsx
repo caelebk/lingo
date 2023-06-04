@@ -9,14 +9,18 @@ interface DeckProps {
     id: string,
     title: string,
     cards: any[],
-    deleteCard(id: string): void
+    deleteCard(id: string): void,
+    updateDeck(cards: unknown[]): void,
 }
 
 export default function Deck(props: DeckProps) {
-    const { id, title, cards, deleteCard } = props
+    const { id, title, cards, deleteCard, updateDeck } = props
     const [editMode, setEditMode] = useState(false)
     const [visible, setVisible] = useState(false)
 
+    const updateEditMode = (value: boolean) => {
+        setEditMode(value)
+    }
     const toggleVisible = () => {
         setVisible(!visible)
     }
@@ -66,9 +70,9 @@ export default function Deck(props: DeckProps) {
             <animated.div className="flex flex-col overflow-auto" style={animateVisible}>
                 <div className="p-5">
                     <div className="flex items-center justify-end mb-5">
-                        <DeckActions editMode={editMode} title={title} setEditMode={(value: boolean) => setEditMode(value)} id={id} />
+                        <DeckActions editMode={editMode} title={title} setEditMode={updateEditMode} id={id} />
                     </div>
-                    <CardList id={id} cards={cards} editMode={editMode} deleteCard={deleteCard} />
+                    <CardList id={id} cards={cards} editMode={editMode} deleteCard={deleteCard} updateDeck={updateDeck} />
                 </div>
             </animated.div>
         </div >

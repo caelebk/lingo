@@ -1,23 +1,27 @@
 import Card from "./card"
 import { DragDropContext, Draggable, Droppable, resetServerContext } from 'react-beautiful-dnd'
 
+
 interface CardListProps {
     id: string,
     cards: any[],
     editMode: boolean,
-    deleteCard(id: string): void
+    deleteCard(id: string): void,
+    updateDeck(cards: unknown[]): void,
 }
 
 export default function CardList(props: CardListProps) {
     resetServerContext();
-    const { id, editMode, deleteCard } = props
+    const { id, editMode, deleteCard, updateDeck } = props
+
     let cards = props.cards
     const handleOnDragEnd = (result: any) => {
         if (!result.destination) return
-        const items = Array.from(cards)
-        const [reorderdItem] = items.splice(result.source.index, 1)
-        items.splice(result.destination.index, 0, reorderdItem)
-        cards = items
+        const dragIndex = result.source.index
+        const dropIndex = result.destination.index
+        const [draggedItem] = cards.splice(dragIndex, 1)
+        cards.splice(dropIndex, 0, draggedItem)
+        updateDeck(cards)
     }
     return (
         <div key={id}>
@@ -45,11 +49,3 @@ export default function CardList(props: CardListProps) {
         </div>
     )
 }
-
-
-// {
-    // cards?.map(card => (
-    //     <Card key={card.id} id={card.id} term={card.term} definition={card.definition} deleteCard={deleteCard}
-    //         editMode={editMode}></Card>
-    // ))
-// }
