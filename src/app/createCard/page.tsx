@@ -9,12 +9,21 @@ async function createCard(data: FormData, deckId: string) {
     const term = data.get("term")?.valueOf() as string
     const define = data.get("definition")?.valueOf() as string
 
+    const cardsInDeck = await prisma.card.findMany({
+        where: {
+            deckId: deckId
+        }
+    })
+
+    let highestOrder = cardsInDeck.length > 0 ? Math.max(...cardsInDeck.map((card) => card.order)) : 0
+
     await prisma.card.create({
         data:
         {
             term: term,
             definition: define,
-            deckId: deckId
+            deckId: deckId,
+            order: highestOrder + 1
         }
     })
 }

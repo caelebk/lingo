@@ -13,15 +13,14 @@ export default function DeckActions(props: DeckActionsProps) {
         <div className="flex gap-2">
             {!editMode ?
                 (<button onClick={() => setEditMode(!editMode)}
-                    className="border border-slate-300 px-2 py-1 rounded
-        hover:bg-slate-700">
+                    className="border border-slate-600 px-3 py-1 rounded-lg bg-slate-700 shadow-2xl
+        hover:bg-slate-600 text-md">
                     Edit
                 </button>)
                 :
                 (
                     <>
-                        <Link className="self-end border border-red-600 px-2 py-1 rounded text-red-600
-        hover:bg-slate-700 hover:text-red-400"
+                        <Link className="self-end px-3 py-1 rounded-lg bg-red-700 hover:bg-red-600 shadow-2xl text-md "
                             href={{
                                 pathname: "/deleteDeck",
                                 query: {
@@ -29,15 +28,13 @@ export default function DeckActions(props: DeckActionsProps) {
                                     title: title
                                 }
                             }}>Delete Deck</Link>
-                        <Link className="self-end border border-lime-500 px-2 py-1 rounded text-lime-500
-        hover:bg-slate-700 hover:text-lime-300"
+                        <Link className="self-end bg-blue-700 px-3 py-1 rounded-lg hover:bg-blue-600 shadow-2xl text-md "
                             href={{
                                 pathname: "/createCard",
                                 query: { id: id }
                             }}>Add Card</Link>
-                        <button className="border border-slate-300 px-2 py-1 rounded
-        hover:bg-slate-700"
-                            onClick={() => setEditMode(!editMode)}>Cancel</button>
+                        <button className="bg-slate-700 px-3 py-1 rounded-lg hover:bg-slate-600 shadow-2xl text-md "
+                            onClick={() => setEditMode(!editMode)}>Close</button>
                     </>
                 )
             }

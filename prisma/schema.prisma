@@ -18,6 +18,7 @@ model Card {
   updatedAt  DateTime @updatedAt
   Deck       Deck?    @relation(fields: [deckId], references: [id])
   deckId     String?
+  order      Int
 }
 
 model Deck {
