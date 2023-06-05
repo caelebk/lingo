@@ -50,20 +50,15 @@ export default function CreateCard(props: paramsProps) {
             <header className="flex justify-between items-center mb-10">
                 <h1 className='text-5xl'>Create a Card</h1>
             </header>
-            <form action={createCardWithID} className="flex gap-2 flex-col border-slate-800 shadow-lg rounded-lg bg-slate-800 px-3 py-5">
+            <form action={createCardWithID} autoComplete='off' className="flex gap-2 flex-col border-slate-800 shadow-lg rounded-lg bg-slate-800 px-3 py-5">
                 <label>Term: </label>
-                <input type="text" name="term" className="
-                border border-slate-300 rounded px-2 py-1 mb-4 outline-none bg-transparent focus-within:border-slate-100 focus-within:bg-slate-700"
-                />
+                <input type="text" name="term" className="border border-slate-600 px-3 py-1 rounded-lg bg-slate-700 shadow-2xl text-md focus-within:bg-slate-600 mb-4" />
                 <label>Definition: </label>
-                <input type="text" name="definition" className="
-                border border-slate-300 rounded px-2 py-1 mb-8 outline-none bg-transparent focus-within:border-slate-100 focus-within:bg-slate-700"
-                />
+                <input type="text" name="definition" className="border border-slate-600 px-3 py-1 rounded-lg bg-slate-700 shadow-2xl text-md focus-within:bg-slate-600 mb-8" />
                 <div className="flex gap-2 justify-end">
-                    <Link href=".." className="border border-slate-300  px-2 py-1 rounded
-        hover:bg-slate-700">Cancel</Link>
-                    <button type="submit" className="border border-slate-300  px-2 py-1 rounded
-        hover:bg-slate-700">Create</button>
+                    <Link href=".." className="border border-slate-600 px-3 py-1 rounded-lg bg-slate-700 shadow-2xl hover:bg-slate-600 hover:shadow-blue-500/40">Cancel</Link>
+                    <button type="submit" className="px-3 py-1 bg-gradient-to-br from-purple-600 to-blue-500 focus:ring-4 focus:outline-none 
+        focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg shadow-lg hover:shadow-blue-500/40">Create</button>
                 </div>
             </form>
         </>

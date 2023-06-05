@@ -33,7 +33,7 @@ export default function DeckActions(props: DeckActionsProps) {
                                 pathname: "/createCard",
                                 query: { id: id }
                             }}>Add Card</Link>
-                        <button className="bg-slate-700 px-3 py-1 rounded-lg hover:bg-slate-600 shadow-2xl text-md "
+                        <button className="bg-slate-700 border-slate-600 px-3 py-1 rounded-lg hover:bg-slate-600 shadow-2xl text-md "
                             onClick={() => setEditMode(!editMode)}>Close</button>
                     </>
                 )
